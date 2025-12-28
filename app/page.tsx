@@ -6,6 +6,7 @@ import ConcernSelection from '@/components/ConcernSelection';
 import AgeInput from '@/components/AgeInput';
 import Result from '@/components/Result';
 import Chat from '@/components/Chat';
+import Logo from '@/components/Logo';
 
 export default function Home() {
   const [step, setStep] = useState<Step>('concern');
@@ -73,10 +74,7 @@ export default function Home() {
       <header className="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50">
         <div className="max-w-4xl mx-auto px-4 py-4">
           <div className="flex items-center justify-center gap-2">
-            <svg className="w-6 h-6 text-pink-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-              <circle cx="12" cy="13" r="3" />
-            </svg>
+            <Logo className="w-9 h-9" />
             <h1 className="text-xl font-bold text-pink-500">美肌コンシェルジュ</h1>
           </div>
         </div>

@@ -1,7 +1,6 @@
 'use client';
 
 import { SkinConcernType, SKIN_CONCERNS } from '@/types';
-import { getIconComponent } from './Icons';
 
 interface ConcernSelectionProps {
   selectedConcerns: SkinConcernType[];
@@ -27,7 +26,6 @@ export default function ConcernSelection({
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-8">
         {SKIN_CONCERNS.map((concern) => {
-          const IconComponent = getIconComponent(concern.id);
           const isSelected = selectedConcerns.includes(concern.id);
           return (
             <button
@@ -37,11 +35,12 @@ export default function ConcernSelection({
                 isSelected ? 'selected' : ''
               }`}
             >
-              <div className={`flex justify-center mb-2 ${isSelected ? 'text-pink-500' : 'text-gray-500'}`}>
-                <IconComponent className="w-8 h-8 md:w-10 md:h-10" />
-              </div>
-              <h3 className="font-semibold text-gray-800 mb-1">{concern.name}</h3>
-              <p className="text-xs md:text-sm text-gray-500">{concern.description}</p>
+              <h3 className={`font-semibold text-lg mb-1 ${isSelected ? 'text-pink-500' : 'text-pink-400'}`}>
+                {concern.name}
+              </h3>
+              <p className={`text-xs md:text-sm ${isSelected ? 'text-pink-400' : 'text-pink-300'}`}>
+                {concern.description}
+              </p>
             </button>
           );
         })}
