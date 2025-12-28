@@ -51,13 +51,6 @@ export const SKIN_CONCERNS: SkinConcern[] = [
   }
 ];
 
-export interface ChatMessage {
-  id: string;
-  role: 'user' | 'assistant';
-  content: string;
-  timestamp: Date;
-}
-
 export interface AdviceResult {
   analysis: string;
   treatment: string;
@@ -66,4 +59,4 @@ export interface AdviceResult {
   lifestyle: string;
 }
 
-export type Step = 'concern' | 'age' | 'result' | 'chat';
+export type Step = 'concern' | 'age' | 'result';

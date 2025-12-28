@@ -5,7 +5,6 @@ import { Step, SkinConcernType, AdviceResult } from '@/types';
 import ConcernSelection from '@/components/ConcernSelection';
 import AgeInput from '@/components/AgeInput';
 import Result from '@/components/Result';
-import Chat from '@/components/Chat';
 import Logo from '@/components/Logo';
 
 export default function Home() {
@@ -72,53 +71,51 @@ export default function Home() {
     <main className="min-h-screen">
       {/* ヘッダー */}
       <header className="bg-white/80 backdrop-blur-sm shadow-sm sticky top-0 z-50">
-        <div className="max-w-4xl mx-auto px-4 py-4">
+        <div className="max-w-4xl mx-auto px-4 py-3">
           <div className="flex items-center justify-center gap-2">
-            <Logo className="w-9 h-9" />
-            <h1 className="text-xl font-bold text-pink-500">美肌コンシェルジュ</h1>
+            <Logo className="w-8 h-8" />
+            <h1 className="text-lg font-bold text-pink-500">美肌コンシェルジュ</h1>
           </div>
         </div>
       </header>
 
       {/* プログレスバー */}
-      {step !== 'chat' && (
-        <div className="max-w-4xl mx-auto px-4 py-4">
-          <div className="flex items-center justify-center gap-2">
-            {['concern', 'age', 'result'].map((s, i) => (
-              <div key={s} className="flex items-center">
-                <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold transition-colors ${
-                    step === s
-                      ? 'bg-pink-400 text-white'
-                      : ['concern', 'age', 'result'].indexOf(step) > i
-                      ? 'bg-pink-200 text-pink-600'
-                      : 'bg-gray-200 text-gray-400'
-                  }`}
-                >
-                  {i + 1}
-                </div>
-                {i < 2 && (
-                  <div
-                    className={`w-12 md:w-20 h-1 mx-1 rounded ${
-                      ['concern', 'age', 'result'].indexOf(step) > i
-                        ? 'bg-pink-200'
-                        : 'bg-gray-200'
-                    }`}
-                  />
-                )}
+      <div className="max-w-4xl mx-auto px-4 py-3">
+        <div className="flex items-center justify-center gap-2">
+          {['concern', 'age', 'result'].map((s, i) => (
+            <div key={s} className="flex items-center">
+              <div
+                className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-semibold transition-colors ${
+                  step === s
+                    ? 'bg-pink-400 text-white'
+                    : ['concern', 'age', 'result'].indexOf(step) > i
+                    ? 'bg-pink-200 text-pink-600'
+                    : 'bg-gray-200 text-gray-400'
+                }`}
+              >
+                {i + 1}
               </div>
-            ))}
-          </div>
-          <div className="flex justify-center mt-2 text-xs text-gray-500">
-            <span className="w-20 text-center">悩み選択</span>
-            <span className="w-20 text-center">年齢入力</span>
-            <span className="w-20 text-center">結果</span>
-          </div>
+              {i < 2 && (
+                <div
+                  className={`w-10 h-1 mx-1 rounded ${
+                    ['concern', 'age', 'result'].indexOf(step) > i
+                      ? 'bg-pink-200'
+                      : 'bg-gray-200'
+                  }`}
+                />
+              )}
+            </div>
+          ))}
         </div>
-      )}
+        <div className="flex justify-center mt-1 text-xs text-gray-500">
+          <span className="w-16 text-center">悩み</span>
+          <span className="w-16 text-center">年齢</span>
+          <span className="w-16 text-center">結果</span>
+        </div>
+      </div>
 
       {/* メインコンテンツ */}
-      <div className="max-w-4xl mx-auto px-4 py-6">
+      <div className="max-w-4xl mx-auto px-4 py-4">
         {step === 'concern' && (
           <ConcernSelection
             selectedConcerns={selectedConcerns}
@@ -140,24 +137,15 @@ export default function Home() {
             concerns={selectedConcerns}
             age={age}
             result={result}
-            onChat={() => setStep('chat')}
             onRestart={handleRestart}
-          />
-        )}
-
-        {step === 'chat' && (
-          <Chat
-            concerns={selectedConcerns}
-            age={age}
-            onBack={() => setStep('result')}
           />
         )}
       </div>
 
       {/* フッター */}
-      <footer className="mt-auto py-6 text-center text-sm text-gray-500">
+      <footer className="mt-auto py-4 text-center text-xs text-gray-500">
         <p>© 2025 美肌コンシェルジュ</p>
-        <p className="mt-1 text-xs">
+        <p className="mt-1">
           ※ AIによる一般的な情報提供であり、医療アドバイスではありません
         </p>
       </footer>

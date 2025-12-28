@@ -1,5 +1,12 @@
 import type { Metadata } from "next";
+import { M_PLUS_Rounded_1c } from "next/font/google";
 import "./globals.css";
+
+const mPlusRounded = M_PLUS_Rounded_1c({
+  weight: ['400', '500', '700'],
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   title: "美肌コンシェルジュ | AI美容アドバイス",
@@ -13,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className="antialiased">
+      <body className={`${mPlusRounded.className} antialiased`}>
         {children}
       </body>
     </html>
