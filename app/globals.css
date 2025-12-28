@@ -3,25 +3,95 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --primary: #e8b4b8;
+  --primary-dark: #d4a0a5;
+  --secondary: #f5e6e8;
+  --accent: #c9a0a5;
+  --background: #faf8f8;
+  --foreground: #4a4a4a;
+  --card-bg: #ffffff;
 }
 
 body {
   color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #fdf6f6 0%, #f8f0f2 100%);
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  min-height: 100vh;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.concern-card {
+  @apply transition-all duration-300 ease-in-out;
+}
+
+.concern-card:hover {
+  @apply scale-105;
+}
+
+.concern-card.selected {
+  @apply ring-2 ring-pink-400 bg-pink-50;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, #fce4ec 0%, #f8bbd9 50%, #f48fb1 100%);
+}
+
+.chat-bubble-user {
+  @apply bg-pink-100 text-gray-800 rounded-2xl rounded-br-sm;
+}
+
+.chat-bubble-ai {
+  @apply bg-white text-gray-800 rounded-2xl rounded-bl-sm shadow-sm border border-pink-100;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8f0f2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e8b4b8;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #d4a0a5;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
 }
