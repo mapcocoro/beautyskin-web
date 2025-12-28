@@ -1,36 +1,88 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 美肌コンシェルジュ
 
-## Getting Started
+AIを活用したパーソナライズされた美容・スキンケアアドバイスWebアプリ
 
-First, run the development server:
+## URL
+
+https://bihadaconcierge.cocoroai.co.jp/
+
+## 概要
+
+肌の悩みに合わせた専門的なケア方法を提案するWebアプリケーションです。
+ユーザーが選択した肌悩みに対して、以下5つのカテゴリでアドバイスを提供します。
+
+1. **症状分析** - 悩みの原因と共感
+2. **美容レーザー** - クリニック治療の選択肢と費用目安
+3. **デパコス** - デパートコスメのおすすめ商品
+4. **ドラコス** - ドラッグストアコスメのおすすめ商品
+5. **生活習慣** - 内側からのケアアドバイス
+
+## 対応している肌悩み
+
+- 乾燥
+- シミ・そばかす
+- ニキビ
+- 毛穴
+- しわ
+- たるみ
+- 敏感肌
+
+## 特徴
+
+- 各悩み×各カテゴリに10パターンのアドバイスを用意
+- 毎回ランダムに表示されるため、飽きずに利用可能
+- APIキー不要（ローカルデータで動作）
+- アコーディオン形式のUIで見やすい
+- スマホ対応のレスポンシブデザイン
+
+## 技術スタック
+
+- **フレームワーク**: Next.js 14 (App Router)
+- **言語**: TypeScript
+- **スタイリング**: Tailwind CSS
+- **フォント**: M PLUS Rounded 1c
+- **ホスティング**: Vercel
+
+## 開発
 
 ```bash
+# 依存関係のインストール
+npm install
+
+# 開発サーバー起動
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# ビルド
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ディレクトリ構成
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+beautyskin-web/
+├── app/
+│   ├── api/advice/     # アドバイスAPIルート
+│   ├── layout.tsx      # レイアウト
+│   ├── page.tsx        # メインページ
+│   ├── icon.png        # ファビコン
+│   └── apple-icon.png  # Appleアイコン
+├── components/
+│   ├── AgeInput.tsx    # 年齢入力
+│   ├── ConcernSelection.tsx  # 悩み選択
+│   ├── Logo.tsx        # ロゴ
+│   └── Result.tsx      # 結果表示（アコーディオン）
+├── lib/
+│   └── adviceData.ts   # アドバイスデータ（10パターン×7悩み）
+├── types/
+│   └── index.ts        # 型定義
+└── public/
+    └── icon.png        # ロゴ画像
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ライセンス
 
-## Learn More
+Private
 
-To learn more about Next.js, take a look at the following resources:
+## 作者
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+ココロAI
